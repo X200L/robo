@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1017">
+  <meta name="description" content="Автономный интерактивный учебник по робототехнике ВсОШ: 19 глав, 37 разборов реальных задач, 150 вопросов с автоматической проверкой.">
+  <title>ROBO / Олимпиадный навигатор</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a href="#home" class="brand" data-nav="home" aria-label="Главная">
+        <span class="brand-icon"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="8" y="13" width="28" height="24" rx="8" stroke="currentColor" stroke-width="2.4"/><path d="M22 8V13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="7" r="2.5" fill="currentColor"/><circle cx="17" cy="24" r="2.7" fill="currentColor"/><circle cx="27" cy="24" r="2.7" fill="currentColor"/><path d="M17 31H27" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+        <span><strong>ROBO<span class="brand-dot">.</span></strong><small>OLYMPIAD PREP</small></span>
+      </a>
+      <div class="sidebar-section">НАВИГАЦИЯ</div>
+      <nav class="navigation" aria-label="Разделы учебника">
+        <button class="nav-link active" data-nav="home"><span class="nav-icon">◫</span> Обзор <span class="nav-shortcut">01</span></button>
+        <button class="nav-link" data-nav="lessons"><span class="nav-icon">▤</span> Учебник <span class="nav-shortcut" id="navLessons">19</span></button>
+        <button class="nav-link" data-nav="sources"><span class="nav-icon">◈</span> Разборы PDF <span class="nav-shortcut" id="navSources">37</span></button>
+        <button class="nav-link" data-nav="quiz"><span class="nav-icon">◎</span> Тренажёр <span class="nav-shortcut" id="navBank">150</span></button>
+        <button class="nav-link" data-nav="practice"><span class="nav-icon">▦</span> Практический тур</button>
+        <button class="nav-link" data-nav="formulas"><span class="nav-icon">∑</span> Формулы</button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-footer">
+        <div class="status-live"><span class="green-pulse"></span> Работает без интернета</div>
+        <div class="side-note">Прогресс сохраняется локально в этом браузере. Файлы не отправляются на сервер.</div>
+        <div class="side-version">v1.0 · 12 NOV 2026</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-action mobile-menu" id="menuButton" aria-label="Открыть меню">☰</button>
+        <div class="breadcrumbs"><span class="bc-home">ROBO ACADEMY</span><span class="bc-sep">/</span><span id="breadcrumb">Обзор</span></div>
+        <div class="top-actions"><span class="source-chip">ВсОШ · 10–11 класс</span><button class="time-button" id="timerOpen"><span class="timer-icon">◷</span> <span id="timerText">180:00</span></button></div>
+      </header>
+      <div id="view" class="main-inner" aria-live="polite"></div>
+      <footer class="site-footer"><span>ROBO / Изучай, решай, проверяй.</span><span>Создано по 4 прикреплённым вариантам · информация о формате относится к указанным годам.</span></footer>
+    </main>
+  </div>
+  <div class="modal hidden" id="timerModal" role="dialog" aria-modal="true" aria-labelledby="timerModalTitle"><div class="modal-backdrop" data-close-modal></div><section class="modal-panel"><button class="modal-close" data-close-modal>✕</button><span class="eyebrow">РЕЖИМ ФОКУСА</span><h2 id="timerModalTitle">Таймер подготовки</h2><p class="muted">Независимый таймер. Даже если переключить раздел, отсчёт продолжится. При закрытии браузера текущее время запоминается.</p><div class="timer-big" id="timerBig">180:00</div><div class="timer-presets"><button data-duration="25">25 мин</button><button data-duration="60">60 мин</button><button data-duration="180" class="chosen">180 мин</button></div><div class="modal-actions"><button class="btn btn-primary" id="timerToggle">Начать</button><button class="btn btn-secondary" id="timerReset">Сбросить</button></div></section></div>
+  <div class="modal hidden" id="imageModal" role="dialog" aria-modal="true"><div class="modal-backdrop" data-close-image></div><section class="image-modal-panel"><button class="modal-close" data-close-image>✕</button><img id="imageModalImg" alt="Изображение страницы из исходного PDF"><div id="imageModalCaption" class="muted"></div></section></div>
+  <div class="toast-container" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="illustrations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
